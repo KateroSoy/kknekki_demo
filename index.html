@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KKNEKKI® | The Original Hair Tie Est. 1987</title>
+  <meta name="description" content="The Authentic Original KKNEKKI Est. 1987. Shop the world's best hair tie.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Dynamic Header -->
+  <div id="header-root"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="assets/hero_summer.jpg" alt="Woman at beach wearing KKNEKKI" class="hero-image">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h2 class="hero-subtitle">The Summer Edit</h2>
+        <h1 class="hero-title">Designed to Stand Out</h1>
+        <a href="shop.html" class="btn btn-white">Shop The Collection</a>
+      </div>
+    </section>
+
+    <!-- Bestsellers Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">The Summer Edit</h2>
+        <a href="shop.html" class="section-link">View all</a>
+      </div>
+
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <a href="product.html?id=1">
+            <div class="product-image-wrapper">
+              <img src="assets/product_blue.jpg" alt="Sea Blue Hair Tie" class="product-image">
+              <button class="quick-add-btn" onclick="event.preventDefault(); addToCart('SEA BLUE', 4.00, 'assets/product_blue.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">SEA BLUE</h3>
+              <p class="product-price">€4.00</p>
+            </div>
+          </a>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card">
+          <a href="product.html?id=2">
+            <div class="product-image-wrapper">
+              <img src="assets/product_bubblegum.jpg" alt="Red-Bubblegum Stripe" class="product-image">
+              <button class="quick-add-btn" onclick="event.preventDefault(); addToCart('RED-BUBBLEGUM STRIPE', 4.50, 'assets/product_bubblegum.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">RED-BUBBLEGUM STRIPE</h3>
+              <p class="product-price">€4.50</p>
+            </div>
+          </a>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+          <a href="product.html?id=3">
+            <div class="product-image-wrapper">
+              <img src="assets/product_yellow.jpg" alt="Neon Yellow" class="product-image">
+              <button class="quick-add-btn" onclick="event.preventDefault(); addToCart('NEON YELLOW', 4.00, 'assets/product_yellow.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">NEON YELLOW</h3>
+              <p class="product-price">€4.00</p>
+            </div>
+          </a>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+          <a href="product.html?id=4">
+            <div class="product-image-wrapper">
+              <img src="assets/product_green.jpg" alt="Neon Green" class="product-image">
+              <button class="quick-add-btn" onclick="event.preventDefault(); addToCart('NEON GREEN', 4.00, 'assets/product_green.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">NEON GREEN</h3>
+              <p class="product-price">€4.00</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Editions Section -->
+    <section class="section" style="background-color: var(--secondary-color);">
+      <div class="section-header">
+        <h2 class="section-title">Curated Editions</h2>
+        <a href="shop.html" class="section-link">Explore Bundles</a>
+      </div>
+
+      <div class="product-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="product-card">
+          <a href="product.html?id=5">
+            <div class="product-image-wrapper" style="aspect-ratio: 16/9;">
+              <img src="assets/hero_summer.jpg" alt="Sunset Edition" class="product-image">
+              <button class="quick-add-btn" onclick="event.preventDefault(); addToCart('SUNSET EDITION', 32.00, 'assets/hero_summer.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">SUNSET EDITION • 8 HAIR TIES</h3>
+              <p class="product-price">€32.00</p>
+            </div>
+          </a>
+        </div>
+        <div class="product-card">
+          <a href="product.html?id=6">
+            <div class="product-image-wrapper" style="aspect-ratio: 16/9;">
+              <img src="assets/hero_summer.jpg" alt="Bubblegum Edition" class="product-image" style="filter: hue-rotate(90deg);">
+              <button class="quick-add-btn" onclick="event.preventDefault(); addToCart('BUBBLEGUM EDITION', 32.00, 'assets/hero_summer.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">BUBBLEGUM EDITION • 8 HAIR TIES</h3>
+              <p class="product-price">€32.00</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dynamic Footer -->
+  <div id="footer-root"></div>
+
+  <script src="components.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

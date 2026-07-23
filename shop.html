@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All | KKNEKKI®</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="header-root"></div>
+
+  <!-- Collection Toolbar exact match -->
+  <div class="collection-toolbar">
+    <div class="toolbar-left">
+      <!-- SVG icons for Grid view -->
+      <svg class="view-icon active" viewBox="0 0 24 24"><path d="M4 4h7v7H4zm9 0h7v7h-7zm0 9h7v7h-7zM4 13h7v7H4z"/></svg>
+      <svg class="view-icon" viewBox="0 0 24 24"><path d="M3 3h5v5H3zm7 0h5v5h-5zm7 0h5v5h-5zM3 10h5v5H3zm7 0h5v5h-5zm7 0h5v5h-5zM3 17h5v5H3zm7 0h5v5h-5zm7 0h5v5h-5z"/></svg>
+      <svg class="view-icon" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+    </div>
+    <div class="toolbar-center">
+      177 PRODUCTS
+    </div>
+    <div class="toolbar-right">
+      <div class="sort-by">SORT BY <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
+      <div class="filter-btn">FILTER</div>
+    </div>
+  </div>
+
+  <main class="section" style="padding-top: 60px;">
+    <div class="product-grid">
+      <div class="product-card">
+        <a href="product.html?id=1">
+          <div class="product-image-wrapper">
+            <div class="badge">AVAILABLE SOON</div>
+            <img src="assets/product_blue.jpg" alt="Sea Blue Hair Tie" class="product-image">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">SEA BLUE</h3>
+            <p class="product-price">€4.00</p>
+          </div>
+        </a>
+      </div>
+      <div class="product-card">
+        <a href="product.html?id=2">
+          <div class="product-image-wrapper">
+            <div class="badge">AVAILABLE SOON</div>
+            <img src="assets/product_bubblegum.jpg" alt="Red-Bubblegum Stripe" class="product-image">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">RED-BUBBLEGUM STRIPE</h3>
+            <p class="product-price">€4.50</p>
+          </div>
+        </a>
+      </div>
+      <div class="product-card">
+        <a href="product.html?id=3">
+          <div class="product-image-wrapper">
+            <div class="badge">AVAILABLE SOON</div>
+            <img src="assets/product_yellow.jpg" alt="Neon Yellow" class="product-image">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">NEON YELLOW</h3>
+            <p class="product-price">€4.00</p>
+          </div>
+        </a>
+      </div>
+      <div class="product-card">
+        <a href="product.html?id=4">
+          <div class="product-image-wrapper">
+            <div class="badge">AVAILABLE SOON</div>
+            <img src="assets/product_green.jpg" alt="Neon Green" class="product-image">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">NEON GREEN</h3>
+            <p class="product-price">€4.00</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+  <script src="components.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | KKNEKKI®</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="header-root"></div>
+
+  <main>
+    <div class="product-detail-section">
+      <div class="product-detail-image">
+        <img src="assets/product_blue.jpg" alt="Sea Blue Hair Tie" id="main-product-img">
+      </div>
+      <div class="product-detail-info">
+        <h1 id="product-title">SEA BLUE</h1>
+        <p class="price" id="product-price">€4.00</p>
+        <p>The perfect finishing touch for summer. KKNEKKI hair ties offer a gentle, secure hold without damage or discomfort. Stylish, durable, and long-lasting, they keep your hair in place all day—no more pain, no more breakage!</p>
+        
+        <div class="qty-selector">
+          <button onclick="updateQty(-1)">-</button>
+          <span id="detail-qty">1</span>
+          <button onclick="updateQty(1)">+</button>
+        </div>
+
+        <button class="btn btn-full" onclick="addDetailToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+  <script src="components.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let currentQty = 1;
+    function updateQty(delta) {
+      currentQty += delta;
+      if (currentQty < 1) currentQty = 1;
+      document.getElementById('detail-qty').innerText = currentQty;
+    }
+    function addDetailToCart() {
+      const title = document.getElementById('product-title').innerText;
+      const price = 4.00; // Mocked for simplicity
+      const image = document.getElementById('main-product-img').src;
+      
+      addToCart(title, price, image, currentQty);
+    }
+  </script>
+</body>
+</html>

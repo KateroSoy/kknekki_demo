@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Instrument Sans", system-ui, sans-serif;
+
+  --color-background: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #F5F5F5;
+  --color-text-primary: #000000;
+  --color-text-secondary: #666666;
+  --color-border: #E5E5E5;
+  --color-border-dark: #CCCCCC;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+}
+
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --surface: #FFFFFF;
+    --text-primary: #000000;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans antialiased selection:bg-black selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
