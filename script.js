@@ -132,3 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ensure UI updates properly after components load
   setTimeout(updateCartUI, 100);
 });
+
+// Expose functions globally so they work when bundled by Vite/Vercel
+window.toggleCart = toggleCart;
+window.toggleSearch = toggleSearch;
+window.addToCart = addToCart;
+window.checkout = checkout;
+window.handleSearch = handleSearch;
+window.updateQty = typeof updateQty !== 'undefined' ? updateQty : undefined;
+window.addDetailToCart = typeof addDetailToCart !== 'undefined' ? addDetailToCart : undefined;
+
