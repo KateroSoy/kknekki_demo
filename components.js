@@ -77,8 +77,7 @@ const overlaysHTML = `
   </div>
 `;
 
-// Inject HTML
-document.addEventListener('DOMContentLoaded', () => {
+function injectComponents() {
   const headerRoot = document.getElementById('header-root');
   if (headerRoot) headerRoot.innerHTML = headerHTML;
 
@@ -86,11 +85,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (footerRoot) footerRoot.innerHTML = footerHTML;
 
   // Append overlays to body
-  const overlaysDiv = document.createElement('div');
-  overlaysDiv.innerHTML = overlaysHTML;
-  document.body.appendChild(overlaysDiv);
+  if (!document.getElementById('cart-overlay')) {
+    const overlaysDiv = document.createElement('div');
+    overlaysDiv.innerHTML = overlaysHTML;
+    document.body.appendChild(overlaysDiv);
+  }
   
   if (window.lucide) {
     lucide.createIcons();
   }
-});
+}
+
+// When bundled as an ES Module by Vite, DOMContentLoaded might have already fired.
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', injectComponents);
+} else {
+  injectComponents();
+}

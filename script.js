@@ -117,21 +117,28 @@ function checkout() {
   toggleCart();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function initScript() {
   // Add subtle shadow to header on scroll instead of breaking layout padding
   const header = document.getElementById('main-header');
-  window.addEventListener('scroll', () => {
-    if(!header) return;
-    if (window.scrollY > 50) {
-      header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
-    } else {
-      header.style.boxShadow = 'none';
-    }
-  });
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    });
+  }
 
   // Ensure UI updates properly after components load
   setTimeout(updateCartUI, 100);
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScript);
+} else {
+  initScript();
+}
 
 // Expose functions globally so they work when bundled by Vite/Vercel
 window.toggleCart = toggleCart;
