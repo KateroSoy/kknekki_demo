@@ -28,8 +28,8 @@
   </div>
 
   <main class="section" style="padding-top: 60px;">
-    <div class="product-grid">
-      <div class="product-card">
+    <div class="product-grid" id="shop-product-grid">
+      <div class="product-card" data-category="blue" data-title="SEA BLUE">
         <a href="product.html?id=1">
           <div class="product-image-wrapper">
             <div class="badge">AVAILABLE SOON</div>
@@ -41,7 +41,7 @@
           </div>
         </a>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="red multipacks" data-title="RED-BUBBLEGUM STRIPE">
         <a href="product.html?id=2">
           <div class="product-image-wrapper">
             <div class="badge">AVAILABLE SOON</div>
@@ -53,7 +53,7 @@
           </div>
         </a>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="yellow" data-title="NEON YELLOW">
         <a href="product.html?id=3">
           <div class="product-image-wrapper">
             <div class="badge">AVAILABLE SOON</div>
@@ -65,7 +65,7 @@
           </div>
         </a>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="green" data-title="NEON GREEN">
         <a href="product.html?id=4">
           <div class="product-image-wrapper">
             <div class="badge">AVAILABLE SOON</div>
@@ -83,5 +83,46 @@
   <div id="footer-root"></div>
   <script type="module" src="/components.js"></script>
   <script type="module" src="/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const category = urlParams.get('category');
+      const search = urlParams.get('search');
+      const cards = document.querySelectorAll('.product-card');
+      
+      let visibleCount = 0;
+      
+      cards.forEach(card => {
+        let isVisible = true;
+        
+        if (category) {
+          const cats = card.getAttribute('data-category') || '';
+          if (!cats.includes(category.toLowerCase())) {
+            isVisible = false;
+          }
+        }
+        
+        if (search) {
+          const title = card.getAttribute('data-title') || '';
+          if (!title.toLowerCase().includes(search.toLowerCase())) {
+            isVisible = false;
+          }
+        }
+        
+        if (isVisible) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Update count text
+      const toolbarCenter = document.querySelector('.toolbar-center');
+      if (toolbarCenter) {
+        toolbarCenter.innerText = visibleCount + ' PRODUCTS';
+      }
+    });
+  </script>
 </body>
 </html>

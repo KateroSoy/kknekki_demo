@@ -98,10 +98,10 @@ function toggleSearch() {
 
 function handleSearch(e) {
   if (e.key === 'Enter') {
-    const query = e.target.value;
-    alert('Search functionality mockup. You searched for: ' + query);
-    toggleSearch();
-    e.target.value = '';
+    const query = e.target.value.trim();
+    if (query) {
+      window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+    }
   }
 }
 
@@ -110,11 +110,7 @@ function checkout() {
     alert('Your cart is empty.');
     return;
   }
-  alert('Thank you for your purchase! This is a mock checkout.');
-  cart = [];
-  saveCart();
-  updateCartUI();
-  toggleCart();
+  window.location.href = 'checkout.html';
 }
 
 function initScript() {
@@ -146,6 +142,7 @@ window.toggleSearch = toggleSearch;
 window.addToCart = addToCart;
 window.checkout = checkout;
 window.handleSearch = handleSearch;
+window.changeQuantity = changeQuantity;
 window.updateQty = typeof updateQty !== 'undefined' ? updateQty : undefined;
 window.addDetailToCart = typeof addDetailToCart !== 'undefined' ? addDetailToCart : undefined;
 

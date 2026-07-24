@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | KKNEKKI®</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="header-root"></div>
+
+  <main class="section" style="padding-top: 60px; max-width: 1000px; margin: 0 auto;">
+    <h1 style="font-family: var(--font-logo); font-size: 2.5rem; text-align: center; margin-bottom: 40px; color: var(--teal-dark);">Checkout</h1>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+      <!-- Checkout Form -->
+      <div>
+        <h2 style="font-family: var(--font-nav); font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 1px;">SHIPPING INFORMATION</h2>
+        <form id="checkout-form" onsubmit="event.preventDefault(); completeCheckout();">
+          <input type="text" placeholder="Full Name" required style="width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-light); font-family: var(--font-nav);">
+          <input type="email" placeholder="Email Address" required style="width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-light); font-family: var(--font-nav);">
+          <input type="text" placeholder="Address" required style="width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-light); font-family: var(--font-nav);">
+          <div style="display: flex; gap: 15px;">
+            <input type="text" placeholder="City" required style="width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-light); font-family: var(--font-nav);">
+            <input type="text" placeholder="Zip Code" required style="width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid var(--border-light); font-family: var(--font-nav);">
+          </div>
+          <button type="submit" class="btn btn-full" style="margin-top: 20px;">Place Order</button>
+        </form>
+      </div>
+
+      <!-- Order Summary -->
+      <div style="background-color: var(--secondary-color); padding: 30px; border-radius: 4px;">
+        <h2 style="font-family: var(--font-nav); font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 1px;">ORDER SUMMARY</h2>
+        <div id="checkout-items" style="margin-bottom: 20px;">
+          <!-- Items injected here -->
+        </div>
+        <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-light); padding-top: 20px; font-weight: 600; font-family: var(--font-nav);">
+          <span>TOTAL</span>
+          <span id="checkout-total">€0.00</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-root"></div>
+  <script type="module" src="/components.js"></script>
+  <script type="module" src="/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cartData = JSON.parse(localStorage.getItem('kknekki_cart')) || [];
+      const checkoutItems = document.getElementById('checkout-items');
+      const checkoutTotal = document.getElementById('checkout-total');
+      
+      if (cartData.length === 0) {
+        checkoutItems.innerHTML = '<p>Your cart is empty.</p>';
+        document.querySelector('.btn-full').disabled = true;
+        document.querySelector('.btn-full').style.opacity = '0.5';
+        return;
+      }
+
+      let total = 0;
+      cartData.forEach(item => {
+        total += item.price * item.quantity;
+        checkoutItems.innerHTML += `
+          <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <img src="${item.image}" alt="${item.title}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 15px;">
+            <div style="flex-grow: 1;">
+              <div style="font-family: var(--font-nav); font-size: 0.9rem;">${item.title}</div>
+              <div style="color: var(--text-light); font-size: 0.8rem;">Qty: ${item.quantity}</div>
+            </div>
+            <div style="font-family: var(--font-nav); font-weight: 500;">€${(item.price * item.quantity).toFixed(2)}</div>
+          </div>
+        `;
+      });
+      checkoutTotal.innerText = '€' + total.toFixed(2);
+    });
+
+    function completeCheckout() {
+      alert('Thank you for your order! This is a successful mock transaction.');
+      localStorage.removeItem('kknekki_cart');
+      window.location.href = 'index.html';
+    }
+    window.completeCheckout = completeCheckout;
+  </script>
+</body>
+</html>

@@ -27,6 +27,7 @@ export default defineConfig(() => {
           product: path.resolve(__dirname, 'product.html'),
           ourstory: path.resolve(__dirname, 'our-story.html'),
           stories: path.resolve(__dirname, 'stories.html'),
+          checkout: path.resolve(__dirname, 'checkout.html'),
         }
       }
     }

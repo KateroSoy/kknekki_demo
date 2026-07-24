@@ -20,15 +20,15 @@ const headerHTML = `
           <li><a href="index.html">Home</a></li>
           <li><a href="bestsellers.html">Bestsellers</a></li>
           <li><a href="shop.html">Shop All</a></li>
-          <li><a href="shop.html">Multi-Packs</a></li>
-          <li><a href="shop.html">Neutrals</a></li>
-          <li><a href="shop.html">Yellow</a></li>
-          <li><a href="shop.html">Orange</a></li>
-          <li><a href="shop.html">Pink</a></li>
-          <li><a href="shop.html">Red</a></li>
-          <li><a href="shop.html">Green</a></li>
-          <li><a href="shop.html">Blue</a></li>
-          <li><a href="shop.html">Purple</a></li>
+          <li><a href="shop.html?category=multipacks">Multi-Packs</a></li>
+          <li><a href="shop.html?category=neutrals">Neutrals</a></li>
+          <li><a href="shop.html?category=yellow">Yellow</a></li>
+          <li><a href="shop.html?category=orange">Orange</a></li>
+          <li><a href="shop.html?category=pink">Pink</a></li>
+          <li><a href="shop.html?category=red">Red</a></li>
+          <li><a href="shop.html?category=green">Green</a></li>
+          <li><a href="shop.html?category=blue">Blue</a></li>
+          <li><a href="shop.html?category=purple">Purple</a></li>
           <li><a href="shop.html">More</a></li>
         </ul>
       </nav>
@@ -38,7 +38,32 @@ const headerHTML = `
 
 const footerHTML = `
   <footer class="footer">
-    <div style="text-align:center; color: var(--text-light); font-size: 0.8rem; letter-spacing: 1px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;">
+      <div>
+        <h4 style="font-family: var(--font-nav); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Shop</h4>
+        <ul style="line-height: 2;">
+          <li><a href="shop.html" style="color: var(--text-light); font-size: 0.85rem;">All Products</a></li>
+          <li><a href="bestsellers.html" style="color: var(--text-light); font-size: 0.85rem;">Bestsellers</a></li>
+          <li><a href="shop.html?category=multipacks" style="color: var(--text-light); font-size: 0.85rem;">Multi-Packs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-family: var(--font-nav); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">About</h4>
+        <ul style="line-height: 2;">
+          <li><a href="our-story.html" style="color: var(--text-light); font-size: 0.85rem;">Our Story</a></li>
+          <li><a href="stories.html" style="color: var(--text-light); font-size: 0.85rem;">Journal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-family: var(--font-nav); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Help</h4>
+        <ul style="line-height: 2;">
+          <li><a href="#" style="color: var(--text-light); font-size: 0.85rem;">Contact Us</a></li>
+          <li><a href="#" style="color: var(--text-light); font-size: 0.85rem;">Shipping & Returns</a></li>
+          <li><a href="#" style="color: var(--text-light); font-size: 0.85rem;">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center; color: var(--text-light); font-size: 0.8rem; letter-spacing: 1px; border-top: 1px solid var(--border-light); padding-top: 20px;">
       <p>© 2026 - KKNEKKI®</p>
     </div>
   </footer>
